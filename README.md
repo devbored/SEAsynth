@@ -2,7 +2,7 @@
 
 A Systolic-Engine based Accelerator (SEA) that can be synthesised to FPGA fabric.
 
-⚠ Repo still subject to change ⚠
+⚠ [Work In Progress]: Repo still subject to change and is in an unfinished state ⚠
 
 ## Key hardware components of Accelerator
 
