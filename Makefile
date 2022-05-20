@@ -42,6 +42,8 @@ VSOURCES   := $(shell find $(SRCDIR) -type f -name *.v)
 VTBSOURCES := $(shell find $(TSTDIR) -type f -name *.v -exec basename {} \;)
 OUTPUTS    := $(patsubst %.out, $(OUTDIR)/%.out, $(VTBSOURCES:.v=.out))
 
+PYTHON     ?= python
+
 # Default build rules
 all: $(OUTPUTS)
 
@@ -58,11 +60,6 @@ PHONY: clean
 clean:
 	rm -rf $(BUILDDIR)/rtl-sim 2> /dev/null || true
 
-PHONY: train-mnist
-train-mnist:
-	@python.exe ./scripts/train-mnist.py
-
-PHONY: mnist-weights
-mnist-weights:
-	@mkdir -p $(BUILDDIR) && cd scripts && python3 ./train-mnist.py && cd ..
-
+PHONY: mnist
+mnist:
+	$(PYTHON) ./scripts/train_mnist.py
